@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>ID</th>
     <th>Cuenta</th>
     <th>Nombre</th>
     <th>Nick</th>
@@ -15,6 +16,7 @@
 
 <% @usuarios.each do |usuario| %>
   <tr>
+    <td><%= usuario.id %></td>
     <td><%= usuario.cuenta_id %></td>
     <td><%= usuario.nombre %></td>
     <td><%= usuario.nick %></td>

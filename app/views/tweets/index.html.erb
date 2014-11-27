@@ -2,11 +2,12 @@
 
 <table>
   <tr>
+    <th>ID</th>
     <th>ID tweet</th>
     <th>Texto</th>
     <th>Creacion tweet</th>
-    <th>Medio</th>
     <th>Usuario Asociado</th>
+    <th>Medio</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,6 +15,7 @@
 
 <% @tweets.each do |tweet| %>
   <tr>
+    <td><%= tweet.id %></td>
     <td><%= tweet.mensaje_id %></td>
     <td><%= tweet.texto %></td>
     <td><%= tweet.creacion_tweet %></td>

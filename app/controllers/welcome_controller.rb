@@ -15,34 +15,37 @@ class WelcomeController < ApplicationController
 	sClient = Twitter::REST::Client.new config 
 	client = Twitter::Streaming::Client.new(config)
 	topicas= ["USA","twitter"]
-	topics=["#movilh","Movilh","#FuerzaTrans","#nicolastienedospapas","nicolastienedospapas","#fuerzatrans","#Homoparentalidad","igualesChile","#leyIdentidadEsVital","#NoMasTalVez","movilh","GayParade","AVP","avp","noalavp","#AVP","AVPahora","noalAVP","NOLAVP","GayParade2014","MatrimonioIgualitario","MUMS_Chile","#NicolasTieneDosPapás"];
+	topics=["#movilh","Movilh","#FuerzaTrans","#nicolastienedospapas","nicolastienedospapas","#fuerzatrans","#Homoparentalidad","igualesChile","#leyIdentidadEsVital","#NoMasTalVez","movilh","GayParade","AVP","avp","noalavp","#AVP","AVPahora","noalAVP","NOLAVP","GayParade2014","MatrimonioIgualitario","MUMS_Chile","#NicolasTieneDosPapás", "DejaSalirTusDerechos"];
 	
-	#palabras=PalabraBuscar.all
-	#busqueda=[]
-	#palabras.each do |x|
-	#busqueda.push x.palabra
-	#end
+	palabras=Busqueda.all
+	busqueda=[]
+	palabras.each do |x|
+	busqueda.push x.palabra
+	end
 	contador = 0
 	@tweets = []	
-	#client.filter(:track => busqueda.join(",")) do |twitter|
-	client.filter(:track => topics.join(",")) do |twitter|
+	client.filter(:track => busqueda.join(",")) do |twitter|
+	#client.filter(:track => topics.join(",")) do |twitter|
 
-	contador += 1
-	if	twitter !=nil and  contador < 30
+	   if twitter.user.lang != "es"
+	      next
+	   end
+		contador += 1
+	if	twitter !=nil and  contador < 3
 	 
 		puts contador
 		print "##############################################\n"
 		print "#####	 	Tweet		       ######\n"
 		print "##############################################\n"
-		print "Es favorito  : --------->#{twitter.favorited?}\n"
-	      	print "Truncado : ----------> #{twitter.truncated?}\n"
+		#print "Es favorito  : --------->#{twitter.favorited?}\n"
+	      	#print "Truncado : ----------> #{twitter.truncated?}\n"
 		print "Tweet creado en : -----------> #{twitter.created_at}\n"
 		print "Id tweet -------------> #{twitter.id}\n"
 		print "Mensaje :---> #{twitter.text}\n"	
-		print "Contador retweet:---------> #{twitter.retweet_count}\n"
-		print "Contador Favoritos: ----------> #{twitter.favorite_count}\n"	
-		print "Retweetiado : --------->#{twitter.retweeted?}\n"
-		print "Lenguaje del tweet ----------->  #{twitter.lang}\n"
+		#print "Contador retweet:---------> #{twitter.retweet_count}\n"
+		#print "Contador Favoritos: ----------> #{twitter.favorite_count}\n"	
+		#print "Retweetiado : --------->#{twitter.retweeted?}\n"
+		#print "Lenguaje del tweet ----------->  #{twitter.lang}\n"
 
  		@tweet = Tweet.create({
 

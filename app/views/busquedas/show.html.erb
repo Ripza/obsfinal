@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Palabra:</b>
+  <%= @busqueda.palabra %>
+</p>
+
+<p>
+  <b>Intension:</b>
+  <%= @busqueda.intension %>
+</p>
+
+
+<%= link_to 'Edit', edit_busqueda_path(@busqueda) %> |
+<%= link_to 'Back', busquedas_path %>

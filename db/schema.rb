@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141127132614) do
+ActiveRecord::Schema.define(:version => 20141127191658) do
+
+  create_table "busquedas", :force => true do |t|
+    t.text     "palabra"
+    t.text     "intension"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "eventos", :force => true do |t|
     t.text     "nombre"

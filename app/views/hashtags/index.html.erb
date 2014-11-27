@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+  <th>ID Hashtag</th>
     <th>Tag</th>
     <th></th>
     <th></th>
@@ -10,6 +11,7 @@
 
 <% @hashtags.each do |hashtag| %>
   <tr>
+    <td><%= hashtag.id %></td>
     <td><%= hashtag.tag %></td>
     <td><%= link_to 'Show', hashtag %></td>
     <td><%= link_to 'Edit', edit_hashtag_path(hashtag) %></td>
