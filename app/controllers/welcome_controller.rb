@@ -21,7 +21,7 @@ class WelcomeController < ApplicationController
 	#busqueda=[]
 	#palabras.each do |x|
 	#busqueda.push x.palabra
-	end
+	#end
 	contador = 0
 	@tweets = []	
 	#client.filter(:track => busqueda.join(",")) do |twitter|
