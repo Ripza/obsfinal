@@ -1,4 +1,40 @@
 Prueba::Application.routes.draw do
+  resources :hashtags_tweets
+
+
+  resources :localizacions
+
+
+  resources :tweets_pal_claves
+
+
+  resources :iniciativas
+
+
+  resources :eventos
+
+
+  resources :leyes
+
+
+  resources :palabra_claves
+
+
+  resources :hashtags
+
+
+  resources :tweets
+
+
+  resources :usuarios
+
+
+  resources :palabras_claves
+
+
+  resources :palabras_buscars
+
+
   get "welcome/index"
   #root 'welcome#index'
   # The priority is based upon order of creation:

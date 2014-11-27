@@ -1,0 +1,23 @@
+<h1>Listing hashtags</h1>
+
+<table>
+  <tr>
+    <th>Tag</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @hashtags.each do |hashtag| %>
+  <tr>
+    <td><%= hashtag.tag %></td>
+    <td><%= link_to 'Show', hashtag %></td>
+    <td><%= link_to 'Edit', edit_hashtag_path(hashtag) %></td>
+    <td><%= link_to 'Destroy', hashtag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Hashtag', new_hashtag_path %>

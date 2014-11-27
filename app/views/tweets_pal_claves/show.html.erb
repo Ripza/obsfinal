@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tweet:</b>
+  <%= @tweets_pal_clafe.tweet_id %>
+</p>
+
+<p>
+  <b>Palabra clave:</b>
+  <%= @tweets_pal_clafe.palabra_clave_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_tweets_pal_clafe_path(@tweets_pal_clafe) %> |
+<%= link_to 'Back', tweets_pal_claves_path %>

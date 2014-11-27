@@ -1,0 +1,13 @@
+rails destroy scaffold usuario
+rails destroy scaffold tweet
+rails destroy scaffold hashtag
+rails destroy scaffold localizacion
+rails destroy scaffold palabra_buscar
+rails destroy scaffold palabra_clave
+
+rails destroy model usuario
+rails destroy model tweet
+rails destroy model hashtag
+rails destroy model localizacion
+rails destroy model palabra_buscar
+rails destroy model palabra_clave

@@ -1,0 +1,15 @@
+rails g scaffold usuario cuenta_id:text nombre:text nick:text descripcion:text creacion_usuario:timestamp contador_seguidores:integer
+
+rails g scaffold tweet mensaje_id:text texto:text creacion_tweet:timestamp recurso:text
+
+rails g scaffold hashtag tag:text
+
+rails g scaffold localizacion comuna:text provincia:text region:text
+
+rails g scaffold palabra_clave palabra:text intension:boolean
+
+rails g scaffold leyes nombre:text tema:text
+
+rails g scaffold evento nombre:text fecha:text
+
+rails g scaffold iniciativa nombre:text tema:text

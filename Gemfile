@@ -4,6 +4,7 @@ gem 'rails', '3.2.16'
 gem 'tweetstream'
 gem 'twitter-text'
 gem 'twitter'
+gem 'activerecord-postgresql-adapter'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

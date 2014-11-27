@@ -1,0 +1,21 @@
+<%= form_for(@palabras_buscar) do |f| %>
+  <% if @palabras_buscar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@palabras_buscar.errors.count, "error") %> prohibited this palabras_buscar from being saved:</h2>
+
+      <ul>
+      <% @palabras_buscar.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :palabra %><br />
+    <%= f.text_area :palabra %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

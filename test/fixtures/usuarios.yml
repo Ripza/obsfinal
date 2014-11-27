@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cuenta_id: MyText
+  nombre: MyText
+  nick: MyText
+  descripcion: MyText
+  creacion_usuario: 2014-11-26 19:24:15
+  contador_seguidores: 1
+
+two:
+  cuenta_id: MyText
+  nombre: MyText
+  nick: MyText
+  descripcion: MyText
+  creacion_usuario: 2014-11-26 19:24:15
+  contador_seguidores: 1

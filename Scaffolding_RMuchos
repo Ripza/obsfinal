@@ -1,0 +1,3 @@
+rails g scaffold TweetsPalClaves tweet_id:integer palabra_clave_id:integer
+
+rails g scaffold hashtags_tweets tweet_id:integer hashtag_id:integer

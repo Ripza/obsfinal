@@ -1,0 +1,27 @@
+<h1>Listing localizacions</h1>
+
+<table>
+  <tr>
+    <th>Comuna</th>
+    <th>Provincia</th>
+    <th>Region</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @localizacions.each do |localizacion| %>
+  <tr>
+    <td><%= localizacion.comuna %></td>
+    <td><%= localizacion.provincia %></td>
+    <td><%= localizacion.region %></td>
+    <td><%= link_to 'Show', localizacion %></td>
+    <td><%= link_to 'Edit', edit_localizacion_path(localizacion) %></td>
+    <td><%= link_to 'Destroy', localizacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Localizacion', new_localizacion_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mensaje_id: MyText
+  texto: MyText
+  creacion_tweet: 2014-11-26 19:24:22
+  recurso: MyText
+
+two:
+  mensaje_id: MyText
+  texto: MyText
+  creacion_tweet: 2014-11-26 19:24:22
+  recurso: MyText

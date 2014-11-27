@@ -1,0 +1,2 @@
+module LocalizacionsHelper
+end

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @iniciativa.nombre %>
+</p>
+
+<p>
+  <b>Tema:</b>
+  <%= @iniciativa.tema %>
+</p>
+
+
+<%= link_to 'Edit', edit_iniciativa_path(@iniciativa) %> |
+<%= link_to 'Back', iniciativas_path %>

@@ -1,0 +1,25 @@
+<%= form_for(@hashtags_tweet) do |f| %>
+  <% if @hashtags_tweet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hashtags_tweet.errors.count, "error") %> prohibited this hashtags_tweet from being saved:</h2>
+
+      <ul>
+      <% @hashtags_tweet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tweet_id %><br />
+    <%= f.number_field :tweet_id %>
+  </div>
+  <div class="field">
+    <%= f.label :hashtag_id %><br />
+    <%= f.number_field :hashtag_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

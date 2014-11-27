@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cuenta:</b>
+  <%= @usuario.cuenta_id %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @usuario.nombre %>
+</p>
+
+<p>
+  <b>Nick:</b>
+  <%= @usuario.nick %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @usuario.descripcion %>
+</p>
+
+<p>
+  <b>Creacion usuario:</b>
+  <%= @usuario.creacion_usuario %>
+</p>
+
+<p>
+  <b>Contador seguidores:</b>
+  <%= @usuario.contador_seguidores %>
+</p>
+
+
+<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
+<%= link_to 'Back', usuarios_path %>

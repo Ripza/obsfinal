@@ -1,0 +1,2 @@
+module PalabrasBuscarsHelper
+end

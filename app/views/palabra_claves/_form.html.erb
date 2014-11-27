@@ -1,0 +1,25 @@
+<%= form_for(@palabra_clafe) do |f| %>
+  <% if @palabra_clafe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@palabra_clafe.errors.count, "error") %> prohibited this palabra_clafe from being saved:</h2>
+
+      <ul>
+      <% @palabra_clafe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :palabra %><br />
+    <%= f.text_area :palabra %>
+  </div>
+  <div class="field">
+    <%= f.label :intension %><br />
+    <%= f.check_box :intension %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
