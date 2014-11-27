@@ -17,15 +17,15 @@ class WelcomeController < ApplicationController
 	topicas= ["USA","twitter"]
 	topics=["#movilh","Movilh","#FuerzaTrans","#nicolastienedospapas","nicolastienedospapas","#fuerzatrans","#Homoparentalidad","igualesChile","#leyIdentidadEsVital","#NoMasTalVez","movilh","GayParade","AVP","avp","noalavp","#AVP","AVPahora","noalAVP","NOLAVP","GayParade2014","MatrimonioIgualitario","MUMS_Chile","#NicolasTieneDosPapás"];
 	
-	#palabras=PalabraBuscar.all
-	#busqueda=[]
-	#palabras.each do |x|
-	#busqueda.push x.palabra
-	#end
+	palabras=PalabraBuscar.all
+	busqueda=[]
+	palabras.each do |x|
+	busqueda.push x.palabra
+	end
 	contador = 0
 	@tweets = []	
 	#client.filter(:track => busqueda.join(",")) do |twitter|
-	client.filter(:track => topicas.join(",")) do |twitter|
+	client.filter(:track => topics.join(",")) do |twitter|
 
 	contador += 1
 	if	twitter !=nil and  contador < 30
