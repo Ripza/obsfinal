@@ -1,9 +1,9 @@
-<h1>Listing iniciativas</h1>
+<h1>Listar Iniciativas</h1>
 
 <table>
   <tr>
-    <th>Nombre</th>
-    <th>Tema</th>
+    <th>Iniciativa nombre</th>
+    <th>Iniciativa tema</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +11,8 @@
 
 <% @iniciativas.each do |iniciativa| %>
   <tr>
-    <td><%= iniciativa.nombre %></td>
-    <td><%= iniciativa.tema %></td>
+    <td><%= iniciativa.iniciativa_nombre %></td>
+    <td><%= iniciativa.iniciativa_tema %></td>
     <td><%= link_to 'Show', iniciativa %></td>
     <td><%= link_to 'Edit', edit_iniciativa_path(iniciativa) %></td>
     <td><%= link_to 'Destroy', iniciativa, method: :delete, data: { confirm: 'Are you sure?' } %></td>

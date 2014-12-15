@@ -4,7 +4,7 @@ rails g scaffold tweet mensaje_id:text texto:text creacion_tweet:timestamp recur
 
 rails g scaffold hashtag tag:text
 
-rails g scaffold localizacion comuna:text provincia:text region:text
+rails g scaffold localizacion latitud:text longitud:text lugar:text
 
 rails g scaffold palabra_clave palabra:text intension:boolean
 

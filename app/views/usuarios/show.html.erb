@@ -1,35 +1,31 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Usuario -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <b>Cuenta:</b>
-  <%= @usuario.cuenta_id %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:cuenta_id) %>:</strong></dt>
+  <dd><%= @usuario.cuenta_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nombre) %>:</strong></dt>
+  <dd><%= @usuario.nombre %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nick) %>:</strong></dt>
+  <dd><%= @usuario.nick %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:descripcion) %>:</strong></dt>
+  <dd><%= @usuario.descripcion %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:creacion_usuario) %>:</strong></dt>
+  <dd><%= @usuario.creacion_usuario %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contador_seguidores) %>:</strong></dt>
+  <dd><%= @usuario.contador_seguidores %></dd>
+</dl>
 
-<p>
-  <b>Nombre:</b>
-  <%= @usuario.nombre %>
-</p>
-
-<p>
-  <b>Nick:</b>
-  <%= @usuario.nick %>
-</p>
-
-<p>
-  <b>Descripcion:</b>
-  <%= @usuario.descripcion %>
-</p>
-
-<p>
-  <b>Creacion usuario:</b>
-  <%= @usuario.creacion_usuario %>
-</p>
-
-<p>
-  <b>Contador seguidores:</b>
-  <%= @usuario.contador_seguidores %>
-</p>
-
-
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              usuarios_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_usuario_path(@usuario), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              usuario_path(@usuario),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

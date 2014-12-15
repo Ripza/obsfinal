@@ -11,20 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141127191658) do
+ActiveRecord::Schema.define(:version => 20141215010216) do
 
   create_table "busquedas", :force => true do |t|
-    t.text     "palabra"
-    t.text     "intension"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text    "palabra"
+    t.text    "intension"
+    t.integer "evento_id"
+    t.integer "leye_id"
+    t.integer "iniciativa_id"
+  end
+
+  create_table "comunas", :force => true do |t|
+    t.text    "comuna_nombre"
+    t.integer "provincium_id"
   end
 
   create_table "eventos", :force => true do |t|
-    t.text     "nombre"
-    t.text     "fecha"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text "evento_nombre"
+    t.text "fecha"
   end
 
   create_table "hashtags", :force => true do |t|
@@ -39,32 +43,30 @@ ActiveRecord::Schema.define(:version => 20141127191658) do
   end
 
   create_table "iniciativas", :force => true do |t|
-    t.text     "nombre"
-    t.text     "tema"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text "iniciativa_nombre"
+    t.text "iniciativa_tema"
   end
 
   create_table "leyes", :force => true do |t|
-    t.text     "nombre"
-    t.text     "tema"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text "leyes_nombre"
+    t.text "leyes_tema"
   end
 
   create_table "localizacions", :force => true do |t|
-    t.text     "comuna"
-    t.text     "provincia"
-    t.text     "region"
+    t.text     "latitud"
+    t.text     "longitud"
+    t.text     "lugar"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "palabra_claves", :force => true do |t|
-    t.text     "palabra"
-    t.boolean  "intension"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "provincia", :force => true do |t|
+    t.text    "provincia_nombre"
+    t.integer "region_id"
+  end
+
+  create_table "regions", :force => true do |t|
+    t.text "region_nombre"
   end
 
   create_table "tweets", :force => true do |t|
@@ -73,16 +75,10 @@ ActiveRecord::Schema.define(:version => 20141127191658) do
     t.datetime "creacion_tweet"
     t.text     "recurso"
     t.integer  "usuario_id"
+    t.integer  "busqueda_id"
     t.integer  "localizacion_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-  end
-
-  create_table "tweets_pal_claves", :force => true do |t|
-    t.integer  "tweet_id"
-    t.integer  "palabra_clave_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
   end
 
   create_table "usuarios", :force => true do |t|
@@ -94,6 +90,7 @@ ActiveRecord::Schema.define(:version => 20141127191658) do
     t.integer  "contador_seguidores"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.integer  "comuna_id"
   end
 
 end

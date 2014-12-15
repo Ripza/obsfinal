@@ -6,6 +6,7 @@ class CreateTweets < ActiveRecord::Migration
       t.timestamp :creacion_tweet
       t.text :recurso
       t.references :usuario
+      t.references :busqueda
       t.references :localizacion
       t.timestamps
     end

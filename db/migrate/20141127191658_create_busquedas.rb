@@ -3,8 +3,9 @@ class CreateBusquedas < ActiveRecord::Migration
     create_table :busquedas do |t|
       t.text :palabra
       t.text :intension
-
-      t.timestamps
+      t.references :evento
+      t.references :leye
+      t.references :iniciativa
     end
   end
 end

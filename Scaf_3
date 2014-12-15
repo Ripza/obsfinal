@@ -1,0 +1,5 @@
+rails g scaffold leyes leyes_nombre:text leyes_tema:text
+
+rails g scaffold evento evento_nombre:text fecha:text
+
+rails g scaffold iniciativa iniciativa_nombre:text iniciativa_tema:text

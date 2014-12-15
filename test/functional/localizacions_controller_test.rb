@@ -18,7 +18,7 @@ class LocalizacionsControllerTest < ActionController::TestCase
 
   test "should create localizacion" do
     assert_difference('Localizacion.count') do
-      post :create, localizacion: { comuna: @localizacion.comuna, provincia: @localizacion.provincia, region: @localizacion.region }
+      post :create, localizacion: { latitud: @localizacion.latitud, longitud: @localizacion.longitud, lugar: @localizacion.lugar }
     end
 
     assert_redirected_to localizacion_path(assigns(:localizacion))
@@ -35,7 +35,7 @@ class LocalizacionsControllerTest < ActionController::TestCase
   end
 
   test "should update localizacion" do
-    put :update, id: @localizacion, localizacion: { comuna: @localizacion.comuna, provincia: @localizacion.provincia, region: @localizacion.region }
+    put :update, id: @localizacion, localizacion: { latitud: @localizacion.latitud, longitud: @localizacion.longitud, lugar: @localizacion.lugar }
     assert_redirected_to localizacion_path(assigns(:localizacion))
   end
 

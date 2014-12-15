@@ -8,6 +8,7 @@ class CreateUsuarios < ActiveRecord::Migration
       t.timestamp :creacion_usuario
       t.integer :contador_seguidores
       t.timestamps
+      t.references :comuna
     end
   end
 end

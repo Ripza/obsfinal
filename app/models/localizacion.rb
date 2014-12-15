@@ -1,4 +1,4 @@
 class Localizacion < ActiveRecord::Base
-  attr_accessible :comuna, :provincia, :region  
-  belongs_to :tweet
+  attr_accessible :latitud, :longitud, :lugar
+  has_many :tweets
 end

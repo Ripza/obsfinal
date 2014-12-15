@@ -1,9 +1,9 @@
-<h1>Listing leyes</h1>
+<h1>Listar Leyes</h1>
 
 <table>
   <tr>
-    <th>Nombre</th>
-    <th>Tema</th>
+    <th>Leyes nombre</th>
+    <th>Leyes tema</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +11,8 @@
 
 <% @leyes.each do |leye| %>
   <tr>
-    <td><%= leye.nombre %></td>
-    <td><%= leye.tema %></td>
+    <td><%= leye.leyes_nombre %></td>
+    <td><%= leye.leyes_tema %></td>
     <td><%= link_to 'Show', leye %></td>
     <td><%= link_to 'Edit', edit_leye_path(leye) %></td>
     <td><%= link_to 'Destroy', leye, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,0 +1,45 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<center><h1>Estadisticas Generales</h1></center>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<center><h2>Cantidad de usuarios agregados en la ultima semana </h2></center>
+<BR>
+<%= line_chart Usuario.group_by_week(:created_at).count %>
+
+<BR>
+<BR>
+<center><h2>Cantidad de tweets agregados en la ultima semana </h2></center>
+<BR>
+<%= line_chart Tweet.group_by_week(:created_at).count %>
+<BR>
+<BR>
+<center><h2>Los 5 usuarios con mas seguidores y su cantidad</h2></center>
+<BR>
+<%= bar_chart ActiveRecord::Base.connection.execute("SELECT DISTINCT nombre,contador_seguidores FROM usuarios,tweets WHERE usuarios.id = tweets.usuario_id group by nombre, usuarios.id, tweets.id order by contador_seguidores DESC LIMIT 5").map{|k,v| k}.map{|b,v| b.values}.inject({}){|h,kv| h[kv[0]]=kv[1];h} %>
+
+<BR>
+<BR>
+<center><h2>Los 10 Hashtags mas usados</h2></center>
+<BR>
+<%= pie_chart ActiveRecord::Base.connection.execute("SELECT tag, count(*) AS contador FROM tweets,hashtags,hashtags_tweets WHERE tweets.id = hashtags_tweets.tweet_id and hashtags.id = hashtags_tweets.hashtag_id group by tag order by contador DESC LIMIT 10").map{|k,v| k}.map{|b,v| b.values}.inject({}){|h,kv| h[kv[0]]=kv[1];h} %>
+
+<BR>
+<BR>
+<center><h2>Cantidad de tweets hechos en dispositivos moviles</h2></center>
+<BR>
+<%= column_chart ActiveRecord::Base.connection.execute("SELECT tweets.recurso,count(*) AS contador FROM tweets WHERE recurso IN ('Android', 'iPhone', 'Android Tablets','iPad', 'Windows Phone') GROUP BY recurso ORDER BY contador DESC").map{|k,v| k}.map{|b,v| b.values}.inject({}){|h,kv| h[kv[0]]=kv[1];h} %>
+
+<BR>
+<BR>
+<center><h2>Las 10 paginas mas usadas para twitear</h2></center>
+<BR>
+<%= column_chart ActiveRecord::Base.connection.execute("SELECT tweets.recurso,count(*) AS contador FROM tweets WHERE recurso NOT IN ('Android', 'iPhone', 'Android Tablets','iPad', 'Web Client') GROUP BY recurso ORDER BY contador DESC LIMIT 15").map{|k,v| k}.map{|b,v| b.values}.inject({}){|h,kv| h[kv[0]]=kv[1];h} %>
+
+<BR>
+<BR>
+<center><h2>Cantidad de tweets con intension positiva vs negativa</h2></center>
+<BR>
+<%= pie_chart ActiveRecord::Base.connection.execute("SELECT intension,count(*) AS contador FROM tweets,busquedas WHERE tweets.busqueda_id = busquedas.id AND intension != 'neutral' GROUP BY intension ORDER BY contador DESC").map{|k,v| k}.map{|b,v| b.values}.inject({}){|h,kv| h[kv[0]]=kv[1];h} %>

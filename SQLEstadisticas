@@ -1,0 +1,4 @@
+Tweet.joins("INNER JOIN busquedas ON busquedas.id = tweets.busqueda_id INNER JOIN leyes ON leyes.id = busquedas.leye_id")
+
+
+Tweet.joins(:usuario).group('nombre').order("contador_seguidores ASC").limit(5)

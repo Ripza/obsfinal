@@ -1,14 +1,6 @@
 Prueba::Application.routes.draw do
-  resources :busquedas
-
-
-  resources :hashtags_tweets
-
 
   resources :localizacions
-
-
-  resources :tweets_pal_claves
 
 
   resources :iniciativas
@@ -18,6 +10,23 @@ Prueba::Application.routes.draw do
 
 
   resources :leyes
+
+
+  resources :regions
+
+
+  resources :provincia
+
+
+  resources :comunas
+
+
+  get "estadisticas/estadistica"
+
+  resources :busquedas
+
+
+  resources :hashtags_tweets
 
 
   resources :hashtags
@@ -33,6 +42,8 @@ Prueba::Application.routes.draw do
 
 
   resources :palabras_buscars
+
+  resources :estadistica
 
 
   get "welcome/index"

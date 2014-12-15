@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+gem "chartkick"
+gem "therubyracer"
+gem "less-rails"
+gem 'gmaps4rails'
+gem "twitter-bootstrap-rails"
+gem 'groupdate'
 gem 'rails', '3.2.16'
 gem 'tweetstream'
 gem 'twitter-text'

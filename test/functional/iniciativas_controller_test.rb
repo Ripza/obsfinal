@@ -18,7 +18,7 @@ class IniciativasControllerTest < ActionController::TestCase
 
   test "should create iniciativa" do
     assert_difference('Iniciativa.count') do
-      post :create, iniciativa: { nombre: @iniciativa.nombre, tema: @iniciativa.tema }
+      post :create, iniciativa: { iniciativa_nombre: @iniciativa.iniciativa_nombre, iniciativa_tema: @iniciativa.iniciativa_tema }
     end
 
     assert_redirected_to iniciativa_path(assigns(:iniciativa))
@@ -35,7 +35,7 @@ class IniciativasControllerTest < ActionController::TestCase
   end
 
   test "should update iniciativa" do
-    put :update, id: @iniciativa, iniciativa: { nombre: @iniciativa.nombre, tema: @iniciativa.tema }
+    put :update, id: @iniciativa, iniciativa: { iniciativa_nombre: @iniciativa.iniciativa_nombre, iniciativa_tema: @iniciativa.iniciativa_tema }
     assert_redirected_to iniciativa_path(assigns(:iniciativa))
   end
 

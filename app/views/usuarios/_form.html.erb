@@ -1,41 +1,44 @@
-<%= form_for(@usuario) do |f| %>
-  <% if @usuario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
-
-      <ul>
-      <% @usuario.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @usuario, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :cuenta_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :cuenta_id, :class => 'text_area' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :nombre, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :nombre, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :nick, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :nick, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :descripcion, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :descripcion, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :creacion_usuario, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :creacion_usuario, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :contador_seguidores, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :contador_seguidores, :class => 'number_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :cuenta_id %><br />
-    <%= f.text_area :cuenta_id %>
-  </div>
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_area :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :nick %><br />
-    <%= f.text_area :nick %>
-  </div>
-  <div class="field">
-    <%= f.label :descripcion %><br />
-    <%= f.text_area :descripcion %>
-  </div>
-  <div class="field">
-    <%= f.label :creacion_usuario %><br />
-    <%= f.datetime_select :creacion_usuario %>
-  </div>
-  <div class="field">
-    <%= f.label :contador_seguidores %><br />
-    <%= f.number_field :contador_seguidores %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                usuarios_path, :class => 'btn' %>
   </div>
 <% end %>

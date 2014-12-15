@@ -1,8 +1,8 @@
-<h1>Listing eventos</h1>
+<h1>Listar Eventos</h1>
 
 <table>
   <tr>
-    <th>Nombre</th>
+    <th>Evento nombre</th>
     <th>Fecha</th>
     <th></th>
     <th></th>
@@ -11,7 +11,7 @@
 
 <% @eventos.each do |evento| %>
   <tr>
-    <td><%= evento.nombre %></td>
+    <td><%= evento.evento_nombre %></td>
     <td><%= evento.fecha %></td>
     <td><%= link_to 'Show', evento %></td>
     <td><%= link_to 'Edit', edit_evento_path(evento) %></td>

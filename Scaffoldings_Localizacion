@@ -1,0 +1,5 @@
+rails g scaffold comuna comuna_nombre:text
+
+rails g scaffold provincia provincia_nombre:text
+
+rails g scaffold region region_nombre:text

@@ -1,33 +1,51 @@
-<h1>Listing tweets</h1>
-
-<table>
-  <tr>
-    <th>ID</th>
-    <th>ID tweet</th>
-    <th>Texto</th>
-    <th>Creacion tweet</th>
-    <th>Usuario Asociado</th>
-    <th>Medio</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @tweets.each do |tweet| %>
-  <tr>
-    <td><%= tweet.id %></td>
-    <td><%= tweet.mensaje_id %></td>
-    <td><%= tweet.texto %></td>
-    <td><%= tweet.creacion_tweet %></td>
-    <td><%= tweet.usuario_id %></td>
-    <td><%= tweet.recurso %></td>
-    <td><%= link_to 'Show', tweet %></td>
-    <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-    <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = Tweet -%>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<div class="page-header">
+  <center><h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1></center>
+</div>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:mensaje_id) %></th>
+      <th><%= model_class.human_attribute_name(:texto) %></th>
+      <th><%= model_class.human_attribute_name(:creacion_tweet) %></th>
+      <th><%= model_class.human_attribute_name(:recurso) %></th>
+      <th><%= model_class.human_attribute_name(:usuario_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= link_to tweet.id, tweet_path(tweet) %></td>
+        <td><%= tweet.mensaje_id %></td>
+        <td><%= tweet.texto %></td>
+        <td><%= tweet.creacion_tweet %></td>
+        <td><%= tweet.recurso %></td>
+        <td><%= tweet.usuario_id %></td>
+        <td><%=l tweet.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_tweet_path(tweet), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      tweet_path(tweet),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_tweet_path,
+            :class => 'btn btn-primary' %>
+<%= line_chart Tweet.joins(:usuario).group('nombre').count %>
 
-<%= link_to 'New Tweet', new_tweet_path %>
+<%= bar_chart Tweet.joins(:usuario).group('nombre, tweets.id, usuarios.contador_seguidores').order("contador_seguidores ASC").limit(5) %>
+
+<%= pie_chart ActiveRecord::Base.connection.execute("SELECT tag, count(*) AS contador FROM tweets,hashtags,hashtags_tweets WHERE tweets.id = hashtags_tweets.tweet_id and hashtags.id = hashtags_tweets.hashtag_id group by tag order by contador DESC").map{|k,v| k}.map{|b,v| b.values}.inject({}){|h,kv| h[kv[0]]=kv[1];h} %>
+

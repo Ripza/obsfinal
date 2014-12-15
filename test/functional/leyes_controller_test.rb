@@ -18,7 +18,7 @@ class LeyesControllerTest < ActionController::TestCase
 
   test "should create leye" do
     assert_difference('Leye.count') do
-      post :create, leye: { nombre: @leye.nombre, tema: @leye.tema }
+      post :create, leye: { leyes_nombre: @leye.leyes_nombre, leyes_tema: @leye.leyes_tema }
     end
 
     assert_redirected_to leye_path(assigns(:leye))
@@ -35,7 +35,7 @@ class LeyesControllerTest < ActionController::TestCase
   end
 
   test "should update leye" do
-    put :update, id: @leye, leye: { nombre: @leye.nombre, tema: @leye.tema }
+    put :update, id: @leye, leye: { leyes_nombre: @leye.leyes_nombre, leyes_tema: @leye.leyes_tema }
     assert_redirected_to leye_path(assigns(:leye))
   end
 

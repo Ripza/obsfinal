@@ -1,10 +1,10 @@
-<h1>Listing localizacions</h1>
+<h1>Listar Localizacions</h1>
 
 <table>
   <tr>
-    <th>Comuna</th>
-    <th>Provincia</th>
-    <th>Region</th>
+    <th>Latitud</th>
+    <th>Longitud</th>
+    <th>Lugar</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +12,9 @@
 
 <% @localizacions.each do |localizacion| %>
   <tr>
-    <td><%= localizacion.comuna %></td>
-    <td><%= localizacion.provincia %></td>
-    <td><%= localizacion.region %></td>
+    <td><%= localizacion.latitud %></td>
+    <td><%= localizacion.longitud %></td>
+    <td><%= localizacion.lugar %></td>
     <td><%= link_to 'Show', localizacion %></td>
     <td><%= link_to 'Edit', edit_localizacion_path(localizacion) %></td>
     <td><%= link_to 'Destroy', localizacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>

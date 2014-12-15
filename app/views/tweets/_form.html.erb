@@ -1,33 +1,44 @@
-<%= form_for(@tweet) do |f| %>
-  <% if @tweet.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
-
-      <ul>
-      <% @tweet.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @tweet, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :mensaje_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :mensaje_id, :class => 'text_area' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :texto, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :texto, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :creacion_tweet, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :creacion_tweet, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :recurso, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :recurso, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :usuario_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :usuario_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :localizacion_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :localizacion_id, :class => 'number_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :mensaje_id %><br />
-    <%= f.text_area :mensaje_id %>
-  </div>
-  <div class="field">
-    <%= f.label :texto %><br />
-    <%= f.text_area :texto %>
-  </div>
-  <div class="field">
-    <%= f.label :creacion_tweet %><br />
-    <%= f.datetime_select :creacion_tweet %>
-  </div>
-  <div class="field">
-    <%= f.label :recurso %><br />
-    <%= f.text_area :recurso %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                tweets_path, :class => 'btn' %>
   </div>
 <% end %>

@@ -1,4 +1,4 @@
-<h1>Listing hashtags</h1>
+<h1>Listar Hashtags</h1>
 
 <table>
   <tr>
@@ -23,3 +23,5 @@
 <br />
 
 <%= link_to 'New Hashtag', new_hashtag_path %>
+
+<%= pie_chart Hashtag.group(:tag).tweets.count %>

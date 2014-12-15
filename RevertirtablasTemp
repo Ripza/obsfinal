@@ -1,0 +1,4 @@
+rake db:migrate:down VERSION=20141126222415
+rake db:migrate:down VERSION=20141126222422
+rake db:migrate:down VERSION=20141213183359
+rake db:migrate:down VERSION=20141215010216

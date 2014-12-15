@@ -1,0 +1,7 @@
+rails destroy scaffold leyes
+rails destroy scaffold evento
+rails destroy scaffold iniciativa
+rails destroy model leyes
+rails destroy model evento
+rails destroy model iniciativa
+

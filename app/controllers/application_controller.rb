@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 	@tweets = []	
 	client.filter(:track => topics.join(",")) do |object|
 		contador += 1
-		if contador > 10
+		if contador > 1
 			break
   		else
   			puts object.text if object.is_a?(Twitter::Tweet)
